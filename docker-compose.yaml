@@ -4,6 +4,7 @@ services:
   db:
     image: mysql:8.0
     container_name: mysql_db
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: 123456 # Replace with a strong password
       MYSQL_ROOT_HOST: '%' # Allow root connections from any host
@@ -19,6 +20,7 @@ services:
   phpmyadmin:
     image: phpmyadmin/phpmyadmin
     container_name: phpmyadmin_ui
+    restart: always
     environment:
       PMA_HOST: db # Link to the MySQL service by its service name
       MYSQL_ROOT_PASSWORD: 123456 # Use the same root password as MySQL
